@@ -1,24 +1,22 @@
 import express from "express";
-import products from "./data/products.js";
 import dotenv from "dotenv";
-import connectDB from "./config/db.js";
-
 dotenv.config();
-connectDB(); // mongo db connection
+import connectDB from "./config/db.js";
+import products from "./data/products.js";
+import productsRoutes from "./routes/productRoutes.js";
+import { notFound, errorHandler } from "./middleware/errorMiddleware.js";
 
 const port = process.env.PORT || 5000;
+connectDB(); // mongo db connection
 
 const app = express();
+
 app.get("/", (req, res) => {
   res.send("Backend API is running");
 });
 
-app.get("/api/products", (req, res) => {
-  res.json(products);
-});
+app.use("/api/products", productsRoutes);
+app.use(notFound);
+app.use(errorHandler);
 
-app.get("/api/products/:id", (req, res) => {
-  const product = products.find((p) => p._id === req.params.id);
-  res.json(product);
-});
 app.listen(port, () => console.log(`server running on port ${port}`));
