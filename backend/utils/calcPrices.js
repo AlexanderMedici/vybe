@@ -26,9 +26,9 @@ export function calcPrices(orderItems) {
 
   // return prices as strings fixed to 2 decimal places
   return {
-    itemsPrice: addDecimals(itemsPrice),
-    shippingPrice: addDecimals(shippingPrice),
-    taxPrice: addDecimals(taxPrice),
-    totalPrice: addDecimals(totalPrice),
+    itemsPrice: Number(addDecimals(itemsPrice)),
+    shippingPrice: Number(addDecimals(shippingPrice)),
+    taxPrice: Number(addDecimals(taxPrice)),
+    totalPrice: Number(addDecimals(totalPrice)),
   };
 }
