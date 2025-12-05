@@ -79,3 +79,21 @@ Vybe is a full-stack e-commerce app built on the MERN stack. It supports product
 - npm run data:import / npm run data:destroy – seed utilities.
 
 
+
+## Author
+
+**Alexander Medici**
+
+- [Profile](https://github.com/AlexanderMedici "Alexander")
+- [Email](mailto:hellomedici@gmail.com?subject=Hi "Hi!")
+- [Website]("https://alexmedici.online/")
+
+ 
+## Contact Me
+
+<a href="https://www.linkedin.com/in/https://www.linkedin.com/in/alexmedici/"><img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white" /></a>  <a href="mailto:contactimedici@gmail.com"><img src=https://raw.githubusercontent.com/johnturner4004/readme-generator/master/src/components/assets/images/email_me_button_icon_151852.svg /></a>
+## 🤝 Support
+
+Contributions, issues, and feature requests are welcome!
+
+Give a ⭐️ if you like this project!
