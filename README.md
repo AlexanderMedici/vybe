@@ -69,9 +69,5 @@ Vybe is a full-stack e-commerce app built on the MERN stack. It supports product
 - npm run client – frontend dev server.
 - npm run data:import / npm run data:destroy – seed utilities.
 
-## Deployment Notes
-- Set BASE_URL/proxy as needed if serving frontend separately.
-- Provide production .env with MongoDB, JWT secret, and payment provider keys.
-- Serve uploads/ statically (already configured in backend/server.js).
 
-Replace the live URL with your deployed site link when you have it.
+

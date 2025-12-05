@@ -4,7 +4,7 @@ import dotenv from "dotenv";
 import cookieParser from "cookie-parser";
 dotenv.config();
 import connectDB from "./config/db.js";
-import productsRoutes from "./routes/productRoutes.js";
+import productsRoutes from "./routes/ProductRoutes.js";
 import userRoutes from "./routes/userRoutes.js";
 import orderRoutes from "./routes/orderRoutes.js";
 import uploadRoutes from "./routes/uploadRoutes.js";
