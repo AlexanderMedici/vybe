@@ -4,22 +4,19 @@ import Message from "../../components/Message";
 import Loader from "../../components/Loader";
 import {
   useGetProductsQuery,
-  useCreateProductMutation,
   useDeleteProductMutation,
 } from "../../slices/productsApiSlice";
-import { Link } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import Paginate from "../../components/Paginate";
-import { useParams } from "react-router-dom";
 import { toast } from "react-toastify";
 import { LinkContainer } from "react-router-bootstrap";
 
 const ProductListScreen = () => {
-  const pageNumber = useParams();
+  const navigate = useNavigate();
+  const { pageNumber } = useParams();
   const { data, isLoading, error, refetch } = useGetProductsQuery({
     pageNumber,
   });
-  const [createProduct, { isLoading: loadingCreate }] =
-    useCreateProductMutation();
 
   const [deleteProduct, { isLoading: loadingDelete }] =
     useDeleteProductMutation();
@@ -35,15 +32,8 @@ const ProductListScreen = () => {
       }
     }
   };
-  const createProductHandler = async () => {
-    if (window.confirm("Are you sure? you want to create a new product ")) {
-      try {
-        await createProduct();
-        refetch();
-      } catch (error) {
-        toast.error(error.message || error.error);
-      }
-    }
+  const createProductHandler = () => {
+    navigate("/admin/product/create");
   };
 
   return (
@@ -59,7 +49,6 @@ const ProductListScreen = () => {
           </Button>
         </Col>
       </Row>
-      {loadingCreate && <Loader />}
       {loadingDelete && <Loader />}
       {isLoading ? (
         <Loader />

@@ -25,6 +25,7 @@ import OrderScreen from "./screens/OrderScreen";
 import ProfileScreen from "./screens/ProfileScreen";
 import ProductListScreen from "./screens/admin/ProductListScreen";
 import ProductEditScreen from "./screens/admin/ProductEditScreen";
+import ProductCreateScreen from "./screens/admin/ProductCreateScreen";
 import UserListScreen from "./screens/admin/UserListScreen";
 import UserEditScreen from "./screens/admin/UserEditScreen";
 
@@ -60,6 +61,7 @@ const router = createBrowserRouter(
           path="/admin/productlist/:pageNumber"
           element={<ProductListScreen />}
         />
+        <Route path="/admin/product/create" element={<ProductCreateScreen />} />
         <Route path="/admin/product/:id/edit" element={<ProductEditScreen />} />
         <Route path="admin/userlist" element={<UserListScreen />} />
         <Route path="admin/user/:id/edit" element={<UserEditScreen />} />

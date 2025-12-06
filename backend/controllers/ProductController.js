@@ -32,18 +32,45 @@ const getProductById = asyncHandler(async (req, res) => {
   }
 });
 
+// @desc    Create a product
+// @route   POST /api/products
+// @access  Private/Admin
 const createProduct = asyncHandler(async (req, res) => {
+  const {
+    name,
+    price,
+    image,
+    brand,
+    category,
+    countInStock,
+    description,
+  } = req.body;
+
+  const missingRequired =
+    !name ||
+    price === undefined ||
+    price === null ||
+    !brand ||
+    !category ||
+    !description;
+
+  if (missingRequired) {
+    res.status(400);
+    throw new Error("Missing required fields");
+  }
+
   const product = new Product({
-    name: "sample",
-    price: 0,
+    name,
+    price,
     user: req.user._id,
-    image: "/images/sample,jpg",
-    brand: "Sample brand",
-    category: "Sample category",
-    countInStock: 0,
+    image: image || "/images/sample.jpg",
+    brand,
+    category,
+    countInStock: countInStock || 0,
     numReviews: 0,
-    description: "sample description",
+    description,
   });
+
   const createdProduct = await product.save();
   res.status(201).json(createdProduct);
 });
